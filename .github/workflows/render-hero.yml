@@ -1,0 +1,79 @@
+name: Render README hero
+
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - "assets/generate_intro.py"
+      - ".github/workflows/render-hero.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-hero-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    if: ${{ !contains(github.event.head_commit.message, '[skip hero render]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --upgrade pip Pillow
+
+      - name: Generate the animated hero
+        run: |
+          python assets/generate_intro.py \
+            --output-gif assets/schedule-updater-intro.gif \
+            --output-preview assets/schedule-updater-preview.png \
+            --fps 12 --frames 72
+
+      - name: Refresh integrity manifest
+        run: |
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+
+          root = Path(".")
+          excluded = {".git", ".venv", "venv", "__pycache__"}
+          paths = sorted(
+              p for p in root.rglob("*")
+              if p.is_file()
+              and not any(part in excluded for part in p.parts)
+              and p.as_posix() != "MANIFEST.sha256"
+          )
+          lines = []
+          for path in paths:
+              digest = sha256(path.read_bytes()).hexdigest()
+              lines.append(f"{digest}  ./{path.as_posix()}")
+          Path("MANIFEST.sha256").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(f"Manifest refreshed for {len(lines)} files.")
+          PY
+
+      - name: Commit generated assets and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/schedule-updater-intro.gif assets/schedule-updater-preview.png MANIFEST.sha256
+          if git diff --cached --quiet; then
+            echo "Generated assets and manifest are already current."
+            exit 0
+          fi
+          git commit -m "chore: refresh animated hero assets [skip hero render]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
