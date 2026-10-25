@@ -1,0 +1,9 @@
+[
+  {
+    "id": "mock-event-001",
+    "summary": "Community Medicine Revision",
+    "start": {"dateTime": "2026-11-02T09:00:00", "timeZone": "Asia/Kolkata"},
+    "end": {"dateTime": "2026-11-02T10:00:00", "timeZone": "Asia/Kolkata"},
+    "description": "Sample event created for local mock tests."
+  }
+]

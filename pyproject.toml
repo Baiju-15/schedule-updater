@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schedule-updater-engine"
+version = "2.1.0"
+description = "Deterministic extraction, validation, and reconciliation engine for the Schedule Updater Agent Skill"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Schedule Updater contributors"}]
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pdfplumber>=0.11"]
+ocr = ["pypdfium2>=4.30", "Pillow>=10", "pytesseract>=0.3.10"]
+docx = ["python-docx>=1.1"]
+html = ["beautifulsoup4>=4.12"]
+test = ["reportlab>=4"]
+all = ["pdfplumber>=0.11", "pypdfium2>=4.30", "Pillow>=10", "pytesseract>=0.3.10", "python-docx>=1.1", "beautifulsoup4>=4.12", "reportlab>=4"]
+
+[tool.setuptools]
+packages = []
