@@ -1,4 +1,4 @@
-f42f2c85a5c2d0379ac868f17ae7bb041a8abfd4c676a6e73e03268673536976  ./.github/workflows/render-hero.yml
+d59fa5ca801efbd8ee6ca88fce44fe45d0fce9a3c6c90faacf962d441a5e015b  ./.github/workflows/render-hero.yml
 ed8e79eb6acf5fdfd63d2dd7298eb0c6a193262c85014dde78384d50803ef7c2  ./.gitignore
 ed5ac5a49a57ee1fedfe265d47f30eeaa46148a77b615ac78301e98cc6837a5b  ./AUDIT_REMEDIATION.md
 78ce8038a84bdea7fc53917b038d44088ea48df5d617195ee0ecf0925532fa14  ./CHANGELOG.md
@@ -6,9 +6,9 @@ f3eb1ee9c285d9e7fe4574b6a467fcc26591d2069ebeb1daa037640cb17a2bd0  ./LICENSE
 d500238c5cd31432107b3b326680ea895b724c06bc10a34dff7012636877326e  ./README.md
 50e0a080811200447a6eb8097122a8f05a3ea4df369a85fb2ca9954617da39d9  ./SKILL.md
 670c51bd683d19e679f6810ec0728536562ff7bdc6788bbce027a64a0d18edf6  ./VALIDATION_REPORT.md
-0b34d79e72b21e5e34da097183ca9480df6ee8bf0c49216afe3aee212778d7ea  ./assets/generate_intro.py
-1b6ba075c1bf68a0ffcea77451a319aec9270a919c662891dbbcfeb9a0ef5c0e  ./assets/schedule-updater-intro.gif
-6f6d101ef0ec92f1a1894a0da1e56dbf755a4cd1546145279c2bfb17410cf4f5  ./assets/schedule-updater-preview.png
+89be04f1692b440dcfa4be8b3e4b1cdf6b6fc2f6003c9d91bfa5852bf8218db9  ./assets/generate_intro.py
+56ad3f6accb188daa451b8c8be9dff073e26bd31e15424d9c2a5d2406c9d809d  ./assets/schedule-updater-intro.gif
+13207d7b4f7ba29fd97d4d633f62d9626ff7f04b6ab21c593c3e1061134108f2  ./assets/schedule-updater-preview.png
 7d3c3c1fcadad6815965cbd41ffaf318222eaa30259933e3ce78b909dd4109d8  ./examples/sample_existing_events.json
 7d8b918e2416906e9b8a436bb03066662490cc96b672ec373a2983072fbe2ce4  ./examples/sample_timetable.md
 8bd3ee48a2b26cf198f97a5b91028d17ff8473f2bd7dc1a6ccd72489af7ea545  ./pyproject.toml
