@@ -42,7 +42,7 @@ jobs:
           python assets/generate_intro.py \
             --output-gif assets/schedule-updater-intro.gif \
             --output-preview assets/schedule-updater-preview.png \
-            --fps 12 --frames 72
+            --fps 12 --frames 60
 
       - name: Refresh integrity manifest
         run: |
