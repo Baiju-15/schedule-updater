@@ -1,5 +1,10 @@
 # Schedule Updater Agent Skill
 
+![Schedule Updater — Deterministic Ingestion, Reconciliation, and Safe Calendar Dispatch Pipeline](assets/schedule-updater-intro.gif)
+
+> **Deterministic timetable ingestion, conflict-free reconciliation, and safe Google Calendar synchronization for agent skills.**<br>
+> Supports **PDF** (native & scanned OCR), **Images** (PNG/JPG/WEBP), **DOCX**, **HTML**, **Markdown**, and pasted plain text.
+
 **Version:** 2.1.0  
 **Package type:** Agent Skill + deterministic local schedule engine  
 **Calendar mutations:** performed only by the host agent's authorized Google Calendar connector
